@@ -8,6 +8,7 @@ export default new Vuex.Store({
   state: {
     // arreglo vacio el cual va a ser llenado con los datos de la base de datos
     tareas:[],
+    // objeto que tiene los valores de la base de datos
     tarea: {nombre:'',id:''}
   },
   mutations: {
@@ -46,9 +47,10 @@ export default new Vuex.Store({
       //vamos a acceder al documento con el id especifica
       db.collection('tareas').doc(idTarea).get()
          .then(doc =>{
-           console.log(doc.id)
-           console.log(doc.data())
+           /*console.log(doc.id)
+           console.log(doc.data())*/
            let tarea = doc.data()
+           //igualamos los variable local con el objeto de la base de datos
            tarea.id = doc.id
            commit('setTarea',tarea)
          })
