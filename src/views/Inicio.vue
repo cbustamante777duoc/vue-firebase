@@ -7,14 +7,14 @@
        
        <ul>
          <li v-for="(item, index) in tareas" :key="index">
-             {{item.nombre}} - {{item.id}}
+              {{item.nombre}} - {{item.id}}
              <!--action que va llevar al componente editar-->
               <!--el id es el nombre de la variable que se uso en la ruta-->
              <router-link :to="{name:'Editar', params:{id: item.id}}">
                  <button>Editar</button>
              </router-link>
-             
 
+                <button @click="eliminarTarea(item.id)">Eliminar</button>
          </li>
         </ul>
     </div>
@@ -26,12 +26,12 @@ import {mapActions, mapState} from 'vuex'
 export default {
     name:'Inicio',
    created() {
-        // uso del metodo
+        // al momento de inicio se llena con los valores de la base de datos
         this.getTareas()
         
     },
     methods: {
-        ...mapActions(['getTareas'])
+        ...mapActions(['getTareas','eliminarTarea'])
     },
     computed: {
         ...mapState(['tareas'])

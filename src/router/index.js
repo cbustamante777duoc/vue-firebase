@@ -19,7 +19,8 @@ Vue.use(VueRouter)
     path: '/agregar',
     name: 'Agregar',
     component: () => import(/* webpackChunkName: "agregar" */ '../views/Agregar.vue')
-  }
+  },
+  
 ]
 
 const router = new VueRouter({
