@@ -1,6 +1,10 @@
 <template>
     <div>
        <h1>componente de inicio</h1> 
+       <router-link to="/agregar">
+           <button>Agregar</button>
+       </router-link>
+       
        <ul>
          <li v-for="(item, index) in tareas" :key="index">
              {{item.nombre}} - {{item.id}}
